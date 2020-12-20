@@ -46,4 +46,13 @@ public class User {
     public void newMessage(Message message){
         this.messages.add(message);
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", messages=" + messages +
+                '}';
+    }
 }

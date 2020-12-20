@@ -7,6 +7,7 @@ import java.util.UUID;
 @Entity
 public class Message {
 
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
@@ -14,11 +15,10 @@ public class Message {
     private Date created=new Date();
 
     @ManyToOne
-    @Column(nullable = false)
     @JoinColumn(name="fk_author")
     private User author;
 
-    @OneToOne(cascade=CascadeType.ALL)
+    @Enumerated(value=EnumType.STRING)
     private MessageType messageType;
 
     public MessageType getMessageType() {
@@ -52,5 +52,16 @@ public class Message {
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                ", created=" + created +
+                ", author=" + author +
+                ", messageType=" + messageType +
+                '}';
     }
 }

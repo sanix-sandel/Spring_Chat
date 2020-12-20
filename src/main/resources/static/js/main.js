@@ -84,14 +84,15 @@ function onMessageReceived(payload) {
         messageElement.classList.add('chat-message');
 
         var avatarElement = document.createElement('i');
-        var avatarText = document.createTextNode(message.username[0]);
+        console.log(message.author.username);
+        var avatarText = document.createTextNode(message.author.username[0]);
         avatarElement.appendChild(avatarText);
-        avatarElement.style['background-color'] = getAvatarColor(message.username);
+        avatarElement.style['background-color'] = getAvatarColor(message.author.username);
 
         messageElement.appendChild(avatarElement);
 
         var usernameElement = document.createElement('span');
-        var usernameText = document.createTextNode(message.username);
+        var usernameText = document.createTextNode(message.author.username);
         usernameElement.appendChild(usernameText);
         messageElement.appendChild(usernameElement);
     }

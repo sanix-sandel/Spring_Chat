@@ -1,14 +1,12 @@
 package com.sanix.SpringChat.event;
 
-import com.sanix.SpringChat.DTO.MessageDTO;
-import com.sanix.SpringChat.models.Message;
+import com.sanix.SpringChat.models.MessageDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.rest.core.annotation.HandleAfterCreate;
 import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 @Component
 @RepositoryEventHandler

@@ -1,5 +1,7 @@
 package com.sanix.SpringChat.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +16,8 @@ public class User {
 
     private String username;
 
-    @OneToMany(mappedBy="author")
+    @JsonBackReference
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="author")
     private List<Message> messages=new ArrayList<>();
 
     public User(){};

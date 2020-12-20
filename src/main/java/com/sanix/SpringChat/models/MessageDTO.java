@@ -1,4 +1,5 @@
-package com.sanix.SpringChat.DTO;
+package com.sanix.SpringChat.models;
+
 
 public class MessageDTO {
 
@@ -30,5 +31,14 @@ public class MessageDTO {
 
     public void setType(MessageType type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "MessageDTO{" +
+                "username='" + username + '\'' +
+                ", content='" + content + '\'' +
+                ", type=" + type +
+                '}';
     }
 }

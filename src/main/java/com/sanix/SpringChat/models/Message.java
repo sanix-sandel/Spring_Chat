@@ -1,8 +1,12 @@
 package com.sanix.SpringChat.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
+
+import static javax.persistence.FetchType.EAGER;
 
 @Entity
 public class Message {
@@ -14,7 +18,8 @@ public class Message {
     private String content;
     private Date created=new Date();
 
-    @ManyToOne
+    @JsonManagedReference
+    @ManyToOne(fetch=EAGER)
     @JoinColumn(name="fk_author")
     private User author;
 

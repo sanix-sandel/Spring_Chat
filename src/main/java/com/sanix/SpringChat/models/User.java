@@ -1,0 +1,49 @@
+package com.sanix.SpringChat.models;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+@Entity
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
+
+    private String username;
+
+    @OneToMany(mappedBy="author")
+    private List<Message> messages=new ArrayList<>();
+
+    public User(){};
+
+    public User(String username) {
+        this.username = username;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+    public void newMessage(Message message){
+        this.messages.add(message);
+    }
+}

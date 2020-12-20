@@ -18,6 +18,17 @@ public class Message {
     @JoinColumn(name="fk_author")
     private User author;
 
+    @OneToOne(cascade=CascadeType.ALL)
+    private MessageType messageType;
+
+    public MessageType getMessageType() {
+        return messageType;
+    }
+
+    public void setMessageType(MessageType messageType) {
+        this.messageType = messageType;
+    }
+
     public UUID getId() {
         return id;
     }
